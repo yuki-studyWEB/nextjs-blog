@@ -1,4 +1,8 @@
-/*-------- text ---------- */
+/*-------- utility ---------- */
+.bold {
+  font-weight: 600;
+}
+
 .mt8{
   margin-top: 8px;
 }
@@ -8,6 +12,8 @@
 .mt24{
   margin-top: 24px;
 }
+
+
 /*-------- flexbox ---------- */
 .flex{
   display: flex;
@@ -78,8 +84,8 @@
   font-size: 0.85rem;
 }
 
-/*---------AboutSection---------*/
-.aboutMe{
+/*---------TopPageSection---------*/
+.aboutMe {
   display: flex;
   font-size: 16px;
   justify-content: space-between;
@@ -87,7 +93,14 @@
   line-height: 1.7;
   align-items: center;
 }
-.underline{
+.underline {
   border-bottom: 1px solid #555;
   margin-bottom: 10px;
+}
+.thumbnail {
+  width: 95%;
+  margin: 0 auto 6px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  display: block;
 }

@@ -20,6 +20,9 @@ export default function Post({ postData }) {
             </p>
           ))}
         </div>
+        <div>
+          <img src={postData.thumbnail.url} alt={postData.title} />
+        </div>
         <div dangerouslySetInnerHTML={{ __html: postData.body }} />
       </article>
     </Layout>

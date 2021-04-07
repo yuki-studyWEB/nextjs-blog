@@ -37,8 +37,8 @@ export default function Home({ allPostsData }: Props) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>About</p>
+      <section className={`${utilStyles.headingMd} ${utilStyles.underline}`}>
+        <h2 className={utilStyles.headingLg}>About</h2>
         <div className={utilStyles.aboutMe}>
             <Image
               priority
@@ -49,11 +49,11 @@ export default function Home({ allPostsData }: Props) {
             />
           <ul>
             <li>石谷　悠貴（いしや　ゆうき）</li>
-            <li>神奈川県川崎市在住 現在27歳</li>
-            <li>2019年からWeb業界に参入。Webコーダー歴約2年。</li>
-            <li className={utilStyles.underline}>2021年よりフロントエンドエンジニアの道を本格的に目指す。</li>
-            <li>習得スキル：HTML/CSS(SCSS)/JavaScript(React)</li>
-            <li>勉強中スキル：TypeScript/Next.js等</li>
+            <li>神奈川県川崎市在住　現在27歳</li>
+            <li>2019年からWeb業界に参入　Webコーダー歴約2年</li>
+            <li>2021年よりフロントエンドエンジニアの道を本格的に目指す</li>
+            <li className={utilStyles.mt8}>・習得スキル：HTML/CSS(SCSS)/JavaScript(React)</li>
+            <li>・勉強中スキル：TypeScript/Next.js等</li>
           </ul>
         </div>
       </section>
@@ -63,7 +63,7 @@ export default function Home({ allPostsData }: Props) {
           {allPostsData.map(({ id, date, title, thumbnail }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a><img src={thumbnail.url} alt=""/>{title}</a>
+                <a><img className={utilStyles.thumbnail} src={thumbnail.url} alt=""/>{title}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
