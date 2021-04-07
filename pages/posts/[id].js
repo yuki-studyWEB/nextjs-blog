@@ -42,12 +42,10 @@ export const getStaticPaths = async () => {
     const repos = await res.json()
 
     const paths = repos.contents.map((repo) => `/posts/${repo.id}`)
-    console.log(paths)
     return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
-    console.log(context.params)
     const id = context.params.id
 
     const key = {
