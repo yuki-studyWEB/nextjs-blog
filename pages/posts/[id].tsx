@@ -3,8 +3,19 @@ import Date from '../../components/date'
 import Layout from '../../components/layout'
 import utilStyles from '../../styles/utils.module.css'
 import fetch from 'isomorphic-unfetch'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-export default function Post({ postData }) {
+export default function Post({
+    postData,
+}: {
+    postData: {
+        title: string
+        date: string
+        body: string
+        tags: { id: string; name: string }[]
+        thumbnail: { url: string }
+    }
+}) {
     return (
         <Layout>
             <Head>
@@ -33,7 +44,7 @@ export default function Post({ postData }) {
     )
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
     const key = {
         headers: { 'X-API-KEY': process.env.API_KEY },
     }
@@ -45,7 +56,7 @@ export const getStaticPaths = async () => {
     return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
     const id = context.params.id
 
     const key = {
