@@ -64,7 +64,7 @@ export default function Home({ allPostsData }: Props) {
                 </div>
             </section>
             <section
-                className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
+                className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.underline}`}
             >
                 <h2 className={utilStyles.headingLg}>Works</h2>
                 <ul className={utilStyles.list}>
@@ -87,6 +87,11 @@ export default function Home({ allPostsData }: Props) {
                         </li>
                     ))}
                 </ul>
+            </section>
+            <section className={utilStyles.mt24}>
+                <Link href="./contact" as={`/contact`}>
+                    <a>お問い合わせ</a>
+                </Link>
             </section>
         </Layout>
     )
