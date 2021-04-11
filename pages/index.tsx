@@ -46,8 +46,8 @@ export default function Home({ allPostsData }: Props) {
                         priority
                         src="/images/profile.jpg"
                         className={utilStyles.borderCircle}
-                        height={170}
-                        width={170}
+                        height={155}
+                        width={165}
                     />
                     <ul>
                         <li>石谷　悠貴（いしや　ゆうき）</li>
