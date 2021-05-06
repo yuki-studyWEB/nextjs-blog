@@ -1,108 +1,119 @@
 /*-------- utility ---------- */
 .bold {
-  font-weight: 600;
+    font-weight: 600;
 }
 
-.mt8{
-  margin-top: 8px;
+.mt8 {
+    margin-top: 8px;
 }
-.mt16{
-  margin-top: 16px;
+.mt16 {
+    margin-top: 16px;
 }
-.mt24{
-  margin-top: 24px;
+.mt24 {
+    margin-top: 24px;
 }
-
 
 /*-------- flexbox ---------- */
-.flex{
-  display: flex;
-  align-items: center;
+.flex {
+    display: flex;
+    align-items: center;
 }
 
 /*------- contents --------- */
 .heading2Xl {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-  margin: 1rem 0;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
 }
 
 .headingXl {
-  font-size: 2rem;
-  line-height: 1.3;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-  margin: 1rem 0;
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
 }
 
 .headingLg {
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin: 1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 1rem 0;
 }
 
 .headingMd {
-  font-size: 1.2rem;
-  line-height: 1.5;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
 .borderCircle {
-  border-radius: 20px;
+    border-radius: 20px;
 }
 
 .colorInherit {
-  color: inherit;
+    color: inherit;
 }
 
 .padding1px {
-  padding-top: 1px;
+    padding-top: 1px;
 }
 
 .list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .listItem {
-  margin: 0 0 1.25rem;
+    margin: 0 0 1.25rem;
 }
 
 .lightText {
-  color: #666;
+    color: #666;
 }
 
 .tag {
-  border: 1px solid #444;
-  width: fit-content;
-  border-radius: 5px;
-  padding: 2px 6px;
+    border: 1px solid #444;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 2px 6px;
 }
 .tag span {
-  font-size: 0.85rem;
+    font-size: 0.85rem;
 }
 
 /*---------TopPageSection---------*/
 .aboutMe {
-  display: flex;
-  font-size: 16px;
-  justify-content: space-between;
-  margin: 20px 0px;
-  line-height: 1.7;
-  align-items: center;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
+    margin: 20px 0 0;
+    line-height: 1.7;
+    align-items: center;
+}
+.jumpButtonList {
+    display: flex;
+    justify-content: space-evenly;
+    margin-block-end: 0;
+}
+.jumpButtonItem a {
+    color: #555;
 }
 .underline {
-  border-bottom: 1px solid #555;
-  margin-bottom: 10px;
+    border-bottom: 1px solid #555;
+    margin-bottom: 10px;
+    padding-bottom: 65px;
+}
+.underline.aboutArea {
+    padding-bottom: 20px;
 }
 .thumbnail {
-  width: 95%;
-  margin: 0 auto 6px;
-  border: 1px solid #999;
-  border-radius: 4px;
-  display: block;
+    width: 95%;
+    margin: 0 auto 6px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    display: block;
 }
 /*---------ContactPage---------*/
 .contactWrap {
@@ -111,15 +122,28 @@
     width: 350px;
 }
 .textField {
-  display: block;
-  width: 80%;
-  height: 27px;
+    display: block;
+    width: 80%;
+    height: 27px;
 }
 .textFieldBody {
-  width: 100%;
-  height: 120px;
+    width: 100%;
+    height: 120px;
 }
 .submitButton {
-  text-align: right;
-  margin-top: 15px;
+    text-align: right;
+    margin-top: 15px;
+}
+
+.contents img {
+    max-width: 75%;
+}
+@media screen and (max-width: 480px) {
+    .aboutMe {
+        flex-direction: column;
+    }
+    .contents img {
+        max-width: 90%;
+        margin: 5px auto 0;
+    }
 }

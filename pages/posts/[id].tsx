@@ -22,23 +22,33 @@ export default function Post({
                 <title>{postData.title}</title>
             </Head>
             <article>
-                <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-                <div className={`${utilStyles.lightText} ${utilStyles.flex}`}>
-                    <Date dateString={postData.date} />
-                    {postData.tags.map((tag) => (
-                        <p
-                            key={tag.id}
-                            className={utilStyles.tag}
-                            style={{ marginLeft: 10 }}
-                        >
-                            <span>{tag.name}</span>
-                        </p>
-                    ))}
-                </div>
-                <div>
-                    <img src={postData.thumbnail.url} alt={postData.title} />
-                </div>
-                <div dangerouslySetInnerHTML={{ __html: postData.body }} />
+                <section>
+                    <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+                    <div
+                        className={`${utilStyles.lightText} ${utilStyles.flex}`}
+                    >
+                        <Date dateString={postData.date} />
+                        {postData.tags.map((tag) => (
+                            <p
+                                key={tag.id}
+                                className={utilStyles.tag}
+                                style={{ marginLeft: 10 }}
+                            >
+                                <span>{tag.name}</span>
+                            </p>
+                        ))}
+                    </div>
+                    <div>
+                        <img
+                            src={postData.thumbnail.url}
+                            alt={postData.title}
+                        />
+                    </div>
+                    <div
+                        className={utilStyles.contents}
+                        dangerouslySetInnerHTML={{ __html: postData.body }}
+                    />
+                </section>
             </article>
         </Layout>
     )

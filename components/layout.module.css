@@ -1,18 +1,24 @@
 /* Important: To use CSS Modules, the CSS file name must end with .module.css. */
 .container {
     max-width: 36rem;
-    padding: 0;
     margin: 1rem auto 6rem;
 }
 
 .header {
+    z-index: 9;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #777;
+    width: 100vw;
 }
 .header h1 {
-    color: #71e1f0;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-block-end: 0;
+    margin-block-start: 0.3em;
 }
+
 .backToHome {
     margin: 3rem 0 0;
 }

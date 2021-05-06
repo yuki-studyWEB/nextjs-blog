@@ -2,8 +2,8 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import Link from 'next/link'
 
-const name = 'About→Yuki Ishiya'
-export const siteTitle = 'About→YukiIshiya'
+const name = 'Ishiya Yuki'
+export const siteTitle = 'About→Ishiya Yuki'
 
 export default function Layout({
     children,
@@ -13,7 +13,7 @@ export default function Layout({
     home?: boolean
 }) {
     return (
-        <div className={styles.container}>
+        <>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
@@ -32,14 +32,16 @@ export default function Layout({
             <header className={styles.header}>
                 <h1>{name}</h1>
             </header>
-            <main>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
-        </div>
+            <div className={styles.container}>
+                <main>{children}</main>
+                {!home && (
+                    <div className={styles.backToHome}>
+                        <Link href="/">
+                            <a>← Back to home</a>
+                        </Link>
+                    </div>
+                )}
+            </div>
+        </>
     )
 }

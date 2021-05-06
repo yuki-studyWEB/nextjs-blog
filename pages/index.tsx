@@ -6,6 +6,7 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import fetch from 'isomorphic-unfetch'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 export const getStaticProps: GetStaticProps = async () => {
     const key = {
@@ -26,19 +27,26 @@ type Props = {
         title: string
         body?: string
         date: string
-        tags: string[]
+        tags: any[]
         thumbnail: { url: string }
     }[]
 }
 
 export default function Home({ allPostsData }: Props) {
+    const careerData = allPostsData.filter(
+        (data) => data.tags[0]!.id === 'rcnu3aeiypa'
+    )
+    const worksData = allPostsData.filter(
+        (data) => data.tags[0]!.id !== 'rcnu3aeiypa'
+    )
     return (
         <Layout home>
             <Head>
                 <title>{siteTitle}</title>
             </Head>
             <section
-                className={`${utilStyles.headingMd} ${utilStyles.underline}`}
+                id="about"
+                className={`${utilStyles.headingMd} ${utilStyles.underline} ${utilStyles.aboutArea}`}
             >
                 <h2 className={utilStyles.headingLg}>About</h2>
                 <div className={utilStyles.aboutMe}>
@@ -57,18 +65,29 @@ export default function Home({ allPostsData }: Props) {
                             2021年よりフロントエンドエンジニアの道を本格的に目指す
                         </li>
                         <li className={utilStyles.mt8}>
-                            ・習得スキル：HTML/CSS(SCSS)/JavaScript(React)
+                            スキル：HTML/CSS/JavaScript/React/TypeScript等
                         </li>
-                        <li>・勉強中スキル：TypeScript/Next.js等</li>
                     </ul>
                 </div>
+                <ul className={utilStyles.jumpButtonList}>
+                    <li className={utilStyles.jumpButtonItem}>
+                        <a href="#works">Works</a>
+                    </li>
+                    <li className={utilStyles.jumpButtonItem}>
+                        <a href="#career">Career</a>
+                    </li>
+                    <li className={utilStyles.jumpButtonItem}>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
             </section>
             <section
+                id="works"
                 className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.underline}`}
             >
                 <h2 className={utilStyles.headingLg}>Works</h2>
                 <ul className={utilStyles.list}>
-                    {allPostsData.map(({ id, date, title, thumbnail }) => (
+                    {worksData.map(({ id, date, title, thumbnail }) => (
                         <li className={utilStyles.listItem} key={id}>
                             <Link href="/posts/[id]" as={`/posts/${id}`}>
                                 <a>
@@ -88,7 +107,34 @@ export default function Home({ allPostsData }: Props) {
                     ))}
                 </ul>
             </section>
-            <section className={utilStyles.mt24}>
+            <section
+                id="career"
+                className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.underline}`}
+            >
+                <h2 className={utilStyles.headingLg}>Career</h2>
+                <ul className={utilStyles.list}>
+                    {careerData.map(({ id, date, title, thumbnail }) => (
+                        <li className={utilStyles.listItem} key={id}>
+                            <Link href="/posts/[id]" as={`/posts/${id}`}>
+                                <a>
+                                    <img
+                                        className={utilStyles.thumbnail}
+                                        src={thumbnail.url}
+                                        alt=""
+                                    />
+                                    {title}
+                                </a>
+                            </Link>
+                            <br />
+                            <small className={utilStyles.lightText}>
+                                <Date dateString={date} />
+                            </small>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+            <section id="contact" className={utilStyles.mt24}>
+                <h2 className={utilStyles.headingLg}>Contact</h2>
                 <Link href="./contact" as={`/contact`}>
                     <a>お問い合わせ</a>
                 </Link>
