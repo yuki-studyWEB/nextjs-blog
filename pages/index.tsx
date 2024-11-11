@@ -62,22 +62,26 @@ export default function Home({ allPostsData }: Props) {
                         <li>神奈川県川崎市在住　現在27歳</li>
                         <li>2019年からWeb業界に参入　Webコーダー歴約2年</li>
                         <li>
-                            2021年よりフロントエンドエンジニアの道を本格的に目指す
-                        </li>
-                        <li className={utilStyles.mt8}>
-                            スキル：HTML/CSS/JavaScript/React/TypeScript等
+                            2021年からフロントエンドエンジニアとしてWebサービス開発の業務に携わる
                         </li>
                     </ul>
+                    <div className={utilStyles.mt8}>
+                    はじめまして、石谷悠貴と申します。ユーザーエクスペリエンスを重視し、視覚的なデザインと機能性を両立したインターフェースを作成することを心がけてます。<br/>
+                    HTML/CSS: レスポンシブデザインを考慮したCSSの知識があります。<br/>
+                    JavaScript: JavaScriptから、Vue.js(2系,3系)を使った開発経験があります。<br/>また業務での経験はありませんが、Reactは公式ドキュメントやオンラインコースを通して学習を進めています。<br/>
+                    UI/UX: ユーザー視点でのデザインに配慮し、直感的なインターフェースの作成を心がけています。<br/>
+                    バックエンド連携: REST APIを通じたバックエンドとの連携をスムーズに行い、データ処理や非同期処理にも対応可能です。
+                    </div>
                 </div>
                 <ul className={utilStyles.jumpButtonList}>
                     <li className={utilStyles.jumpButtonItem}>
-                        <a href="#works">Works</a>
+                        <a href="#career">キャリア</a>
                     </li>
                     <li className={utilStyles.jumpButtonItem}>
-                        <a href="#career">Career</a>
+                        <a href="#works">個人開発(勉強)</a>
                     </li>
                     <li className={utilStyles.jumpButtonItem}>
-                        <a href="#contact">Contact</a>
+                        <a href="#contact">お問合せ</a>
                     </li>
                 </ul>
             </section>
