@@ -94,36 +94,10 @@ export default function Home({ allPostsData }: Props) {
                 </ul>
             </section>
             <section
-                id="works"
-                className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.underline}`}
-            >
-                <h2 className={utilStyles.headingLg}>Works</h2>
-                <ul className={utilStyles.list}>
-                    {worksData.map(({ id, date, title, thumbnail }) => (
-                        <li className={utilStyles.listItem} key={id}>
-                            <Link href="/posts/[id]" as={`/posts/${id}`}>
-                                <a>
-                                    <img
-                                        className={utilStyles.thumbnail}
-                                        src={thumbnail.url}
-                                        alt=""
-                                    />
-                                    {title}
-                                </a>
-                            </Link>
-                            <br />
-                            <small className={utilStyles.lightText}>
-                                <Date dateString={date} />
-                            </small>
-                        </li>
-                    ))}
-                </ul>
-            </section>
-            <section
                 id="career"
                 className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.underline}`}
             >
-                <h2 className={utilStyles.headingLg}>Career</h2>
+                <h2 className={utilStyles.headingLg}>キャリア</h2>
                 <ul className={utilStyles.list}>
                     {careerData.map(({ id, date, title, thumbnail }) => (
                         <li className={utilStyles.listItem} key={id}>
@@ -145,8 +119,34 @@ export default function Home({ allPostsData }: Props) {
                     ))}
                 </ul>
             </section>
+            <section
+                id="works"
+                className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.underline}`}
+            >
+                <h2 className={utilStyles.headingLg}>個人開発(勉強)</h2>
+                <ul className={utilStyles.list}>
+                    {worksData.map(({ id, date, title, thumbnail }) => (
+                        <li className={utilStyles.listItem} key={id}>
+                            <Link href="/posts/[id]" as={`/posts/${id}`}>
+                                <a>
+                                    <img
+                                        className={utilStyles.thumbnail}
+                                        src={thumbnail.url}
+                                        alt=""
+                                    />
+                                    {title}
+                                </a>
+                            </Link>
+                            <br />
+                            <small className={utilStyles.lightText}>
+                                <Date dateString={date} />
+                            </small>
+                        </li>
+                    ))}
+                </ul>
+            </section>
             <section id="contact" className={utilStyles.mt24}>
-                <h2 className={utilStyles.headingLg}>Contact</h2>
+                <h2 className={utilStyles.headingLg}>お問合せ</h2>
                 <Link href="./contact" as={`/contact`}>
                     <a>お問い合わせ</a>
                 </Link>
