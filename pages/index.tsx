@@ -9,18 +9,25 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 
 export const getStaticProps: GetStaticProps = async () => {
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
+    const apiKey = process.env.API_KEY;
+
+    if (!apiKey) {
+        throw new Error('API_KEY is not defined');
     }
-    const res = await fetch(`https://nextmyblogs.microcms.io/api/v1/posts`, key)
-    const data = await res.json()
+
+    const res = await fetch(`https://nextmyblogs.microcms.io/api/v1/posts`, {
+        headers: {
+            'X-API-KEY': apiKey,  // apiKeyはstring型であることが保証される
+        },
+    });
+
+    const data = await res.json();
     return {
         props: {
             allPostsData: data.contents,
         },
-    }
-}
-
+    };
+};
 type Props = {
     allPostsData: {
         id: string
@@ -50,13 +57,14 @@ export default function Home({ allPostsData }: Props) {
             >
                 <h2 className={utilStyles.headingLg}>About</h2>
                 <div className={utilStyles.aboutMe}>
-                    <Image
-                        priority
-                        src="/images/profile.jpg"
-                        className={utilStyles.borderCircle}
-                        height={155}
-                        width={165}
-                    />
+                <Image
+                    priority
+                    src="/images/profile.jpg"
+                    className={utilStyles.borderCircle}
+                    height={155}
+                    width={165}
+                    alt="プロフィール画像" // alt属性を追加
+                />
                     <ul>
                         <li>石谷　悠貴（いしや　ゆうき）</li>
                         <li>神奈川県川崎市在住　現在27歳</li>

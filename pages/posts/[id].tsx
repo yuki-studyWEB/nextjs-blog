@@ -5,17 +5,20 @@ import utilStyles from '../../styles/utils.module.css'
 import fetch from 'isomorphic-unfetch'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-export default function Post({
-    postData,
-}: {
-    postData: {
-        title: string
-        date: string
-        body: string
-        tags: { id: string; name: string }[]
-        thumbnail: { url: string }
-    }
-}) {
+// PostData型を定義
+type PostData = {
+    title: string
+    date: string
+    body: string
+    tags: { id: string; name: string }[]
+    thumbnail: { url: string }
+}
+
+type PostProps = {
+    postData: PostData
+}
+
+export default function Post({ postData }: PostProps) {
     return (
         <Layout>
             <Head>
@@ -54,23 +57,31 @@ export default function Post({
     )
 }
 
+// getStaticPathsの型定義
 export const getStaticPaths: GetStaticPaths = async () => {
     const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
+        headers: { 'X-API-KEY': process.env.API_KEY ?? '' }, // process.env.API_KEYがundefinedであれば空文字にする
     }
 
     const res = await fetch('https://nextmyblogs.microcms.io/api/v1/posts', key)
     const repos = await res.json()
 
-    const paths = repos.contents.map((repo) => `/posts/${repo.id}`)
+    const paths = repos.contents.map((repo: { id: string }) => ({
+        params: { id: repo.id },
+    }))
     return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const id = context.params.id
+export const getStaticProps: GetStaticProps<PostProps> = async (context) => {
+    const id = context.params?.id as string
+
+    const apiKey = process.env.API_KEY
+    if (!apiKey) {
+        throw new Error('API_KEY is missing')
+    }
 
     const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
+        headers: { 'X-API-KEY': apiKey }, // process.env.API_KEYがundefinedでないことを保証
     }
 
     const res = await fetch(

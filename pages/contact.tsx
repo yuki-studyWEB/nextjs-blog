@@ -9,13 +9,13 @@ const Contact = () => {
     const [name, setName] = useState('')
     const [body, setBody] = useState('')
 
-    const handleSubmit = (e) => {
-        const validateEmailFormat = (email) => {
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const validateEmailFormat = (email: string) => {
             const regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
             return regex.test(email)
         }
 
-        const validateRequiredInput = (...args) => {
+        const validateRequiredInput = (...args: (string | number)[]) => {
             let isBlank = false
             for (let i = 0; i < args.length; i = (i + 1) | 0) {
                 if (args[i] === '') {
