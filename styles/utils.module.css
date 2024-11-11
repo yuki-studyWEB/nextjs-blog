@@ -12,7 +12,9 @@
 .mt24 {
     margin-top: 24px;
 }
-
+.ml7 {
+    margin-top: 7px;
+}
 /*-------- flexbox ---------- */
 .flex {
     display: flex;
@@ -82,7 +84,11 @@
 .tag span {
     font-size: 0.85rem;
 }
-
+.myProfile {
+    margin-top: 8px;
+    font-size: 14.5px;
+    line-height: 1.7;
+}
 /*---------TopPageSection---------*/
 .aboutMe {
     display: flex;
