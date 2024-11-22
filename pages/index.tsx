@@ -59,7 +59,7 @@ export default function Home({ allPostsData }: Props) {
                 <div className={utilStyles.aboutMe}>
                 <Image
                     priority
-                    src="/images/profile.jpg"
+                    src="/images/profile_2.JPG"
                     className={utilStyles.borderCircle}
                     height={155}
                     width={165}
